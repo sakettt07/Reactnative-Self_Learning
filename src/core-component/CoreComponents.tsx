@@ -1,16 +1,18 @@
-import { View, Text, Image, TextInput } from 'react-native'
-import React from 'react'
+import { View, Text, Image, TextInput, TouchableOpacity, Alert, FlatList, ScrollView, SectionList } from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const CoreComponents = () => {
+    const [name, setName] = useState("");
     return (
-        <View onLayout={(event) => {
+        <SafeAreaView onLayout={(event) => {
             console.log("This is my size", event.nativeEvent.layout)
         }} style={{
             backgroundColor: '#ff5d7d',
             flex: 1
         }}>
             <View style={{
-                width: 250, height: 250, backgroundColor: 'orange'
+                width: 400, height: 200, backgroundColor: 'orange'
             }}></View>
             <Text style={{
                 fontSize: 25
@@ -20,10 +22,56 @@ const CoreComponents = () => {
             }} style={{
                 width: 300, height: 200
             }} />
-            <TextInput style={{
+            <TextInput onChangeText={text => {
+                setName(text)
+            }} style={{
                 width: 300, height: 50, borderWidth: 1
-            }} value='saket' placeholder='Enter your email' />
-        </View>
+            }} value={name} placeholder='Enter your email' editable={true} />
+
+            <TouchableOpacity style={{
+                borderRadius: 20,
+                backgroundColor: "#fff",
+                width: 200,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}
+                onPress={() => {
+                    Alert.alert("Are you sure")
+                }}>
+                <Text>Login</Text>
+            </TouchableOpacity>
+
+            <FlatList data={[1, 1, 1, 1, 1, 1]} renderItem={({ item, index }) => (
+
+                <View style={{
+                    width: 300,
+                    height: 50,
+                    justifyContent: 'center',
+                    alignItems: "center",
+                    backgroundColor: "#f2f2f2",
+                    marginTop: 10
+                }}>
+                    <Text>{item}</Text>
+                </View>
+            )} />
+
+            <SectionList sections={[{ data: [1, 2, 2, 3, 3], title: 'clothes' }, { data: [3, 4, 5, 5], title: 'Mobile' }]} renderItem={({ item, index }) => (
+
+                <View style={{
+                    width: 300,
+                    height: 50,
+                    justifyContent: 'center',
+                    alignItems: "center",
+                    backgroundColor: "#f2f2f2",
+                    marginTop: 10
+                }}>
+                    <Text>{item}</Text>
+                </View>
+            )} renderSectionHeader={({ section: { title } }) => {
+                return <Text>{title}</Text>
+            }} />
+        </SafeAreaView>
     )
 }
 
