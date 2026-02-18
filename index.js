@@ -10,6 +10,7 @@ import ClassComponent from './src/components/ClassComponent';
 import InlineStyles from './src/styles/InlineStyles';
 import CoreComponents from './src/core-component/CoreComponents'
 import FlexBoxDemo from './src/components/FlexBoxDemo';
+import StackDemo from './src/navigation/stack/StackDemo'
 
 
-AppRegistry.registerComponent(appName, () => FlexBoxDemo);
+AppRegistry.registerComponent(appName, () => StackDemo);
