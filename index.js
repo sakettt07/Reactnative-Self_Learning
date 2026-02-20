@@ -11,6 +11,7 @@ import InlineStyles from './src/styles/InlineStyles';
 import CoreComponents from './src/core-component/CoreComponents'
 import FlexBoxDemo from './src/components/FlexBoxDemo';
 import StackDemo from './src/navigation/stack/StackDemo'
+import DrawerNavigation from './src/navigation/drawer/DrawerNavigation'
 
 
-AppRegistry.registerComponent(appName, () => StackDemo);
+AppRegistry.registerComponent(appName, () => DrawerNavigation);

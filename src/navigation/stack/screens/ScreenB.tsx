@@ -1,12 +1,17 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
+import { useRoute } from '@react-navigation/native'
 
-const ScreenB = () => {
+const ScreenB = ({ navigation }) => {
+    const route = useRoute();
     return (
-        <View>
-            <Text>ScreenB</Text>
+        <View style={{
+            flex: 1
+        }}>
+            <Text>ScreenB {route.params.user.email}</Text>
+            <Button title='go back' onPress={() => navigation.goBack()}></Button>
         </View>
     )
 }
 
-export default ScreenB
+export default ScreenB;
