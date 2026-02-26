@@ -13,6 +13,7 @@ import FlexBoxDemo from './src/components/FlexBoxDemo';
 import StackDemo from './src/navigation/stack/StackDemo'
 import DrawerNavigation from './src/navigation/drawer/DrawerNavigation';
 import UseContext from './src/components/UseContext/UseContext';
+import UseReducer from './src/components/UseReducerHook/UseReducer'
 
 
-AppRegistry.registerComponent(appName, () => UseContext);
+AppRegistry.registerComponent(appName, () => UseReducer);
